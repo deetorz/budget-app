@@ -30,11 +30,15 @@
 
     .income-column {
       margin-right: 35px;
-      color: $green;
+      h1 {
+        color: $green;
+      }
     }
 
     .expense-column {
-      color: $red;
+      h1 {
+        color: $red;
+      }
     }
   }
 }
