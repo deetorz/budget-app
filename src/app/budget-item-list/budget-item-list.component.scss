@@ -1,0 +1,31 @@
+@import "../../main-styles.scss";
+
+.budget-item-section {
+  display: flex;
+  padding: 50px;
+
+  justify-content: center;
+  align-items: center;
+
+  .budget-item-container {
+    display: flex;
+    max-width: 60%;
+    height: 100%;
+    width: 100%;
+
+    .income-column,
+    .expense-column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 0; //columns will be same size regardless of content
+      flex-grow: 1;
+
+      h1 {
+        font-family: Lato;
+        font-size: 24px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
