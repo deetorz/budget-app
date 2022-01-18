@@ -6,6 +6,7 @@ import { BudgetItem } from 'src/shared/models/budget-item.model';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
+
 export class MainPageComponent implements OnInit {
   budgetItems: BudgetItem[] = new Array<BudgetItem>();
 
