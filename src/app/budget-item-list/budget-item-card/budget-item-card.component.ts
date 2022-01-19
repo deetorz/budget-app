@@ -7,7 +7,7 @@ import { BudgetItem } from 'src/shared/models/budget-item.model';
   styleUrls: ['./budget-item-card.component.scss']
 })
 export class BudgetItemCardComponent implements OnInit {
-  @Input() item: BudgetItem | undefined;
+  @Input() item: BudgetItem;
 
   constructor() { }
 
