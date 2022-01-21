@@ -17,7 +17,7 @@ import { EditItemModalComponent } from './edit-item-modal/edit-item-modal.compon
     AddItemFormComponent,
     BudgetItemListComponent,
     BudgetItemCardComponent,
-    EditItemModalComponent
+    EditItemModalComponent,
   ],
   imports: [
     BrowserModule,
