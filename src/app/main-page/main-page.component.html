@@ -1,17 +1,17 @@
 <div class="top-bar">
   <h1>Finance Tracker</h1>
 </div>
-<section class="total-budget-section">
-  <h2 class="green">300</h2>
-</section>
-<section class="add-item-section">
+<div class="total-budget-section">
+  <h2 [ngClass]="totalBudget >= 0 ? 'green' : 'red'">{{ totalBudget }}</h2>
+</div>
+<div class="add-item-section">
   <div class="add-item-container">
     <app-add-item-form
       style="padding: 20px"
       (formSubmit)="addItem($event)"
     ></app-add-item-form>
   </div>
-</section>
+</div>
 
 <hr />
 
