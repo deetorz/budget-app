@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FirestoreModule } from '@angular/fire/firestore';
@@ -33,7 +33,7 @@ import { EditItemModalComponent } from './edit-item-modal/edit-item-modal.compon
     FirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
