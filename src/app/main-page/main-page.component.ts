@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BudgetItem } from 'src/shared/models/budget-item.model';
 import { CrudService } from '../services/crud.service';
@@ -8,7 +8,7 @@ import { CrudService } from '../services/crud.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
 })
-export class MainPageComponent implements OnInit, OnChanges {
+export class MainPageComponent implements OnInit {
   budgetItems: BudgetItem[] = new Array<BudgetItem>();
   totalBudget = 0;
   public transactionForm: FormGroup;
@@ -31,11 +31,8 @@ export class MainPageComponent implements OnInit, OnChanges {
           ...(transaction.payload.doc.data() as {}),
         } as unknown as BudgetItem;
       });
+      this.calculateTotal();
     });
-  }
-
-  ngOnChanges() {
-    this.calculateTotal;
   }
 
   addItem(newItem: BudgetItem) {
@@ -47,6 +44,7 @@ export class MainPageComponent implements OnInit, OnChanges {
   deleteItem(item: BudgetItem) {
     const index = this.budgetItems.indexOf(item);
     this.budgetItems.splice(index, 1);
+    this.transactionService.deleteTransaction(item);
     this.calculateTotal();
   }
 
