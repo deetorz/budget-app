@@ -10,7 +10,7 @@ import { CrudService } from '../services/crud.service';
 })
 export class MainPageComponent implements OnInit {
   budgetItems: BudgetItem[] = new Array<BudgetItem>();
-  totalBudget = 0;
+  totalBudget: number;
   public transactionForm: FormGroup;
 
   constructor(
