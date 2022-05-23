@@ -5,9 +5,10 @@ import { FormBuilder, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FirestoreModule } from '@angular/fire/firestore';
-import { AngularFireModule } from '@angular/fire/compat';
 
+import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
@@ -34,6 +35,7 @@ import { EditItemModalComponent } from './edit-item-modal/edit-item-modal.compon
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [FormBuilder],
+  entryComponents: [EditItemModalComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

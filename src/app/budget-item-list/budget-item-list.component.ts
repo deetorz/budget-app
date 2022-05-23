@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { BudgetItem } from 'src/shared/models/budget-item.model';
+import { EditItemModalComponent } from '../edit-item-modal/edit-item-modal.component';
+import { CrudService } from '../services/crud.service';
 
 @Component({
   selector: 'app-budget-item-list',
@@ -7,14 +10,31 @@ import { BudgetItem } from 'src/shared/models/budget-item.model';
   styleUrls: ['./budget-item-list.component.scss'],
 })
 export class BudgetItemListComponent implements OnInit {
-  @Input() budgetItems: BudgetItem[] | undefined;
+  @Input() budgetItems: BudgetItem[];
   @Output() delete: EventEmitter<BudgetItem> = new EventEmitter<BudgetItem>();
 
-  constructor() {}
+  constructor(
+    public dialog: MatDialog,
+    public transactionService: CrudService
+  ) {}
 
   ngOnInit(): void {}
 
   onDelete(item: BudgetItem) {
     this.delete.emit(item);
+  }
+
+  onCardClicked(item: BudgetItem) {
+    const index = this.budgetItems.indexOf(item);
+    const dialogRef = this.dialog.open(EditItemModalComponent, {
+      width: '580px',
+      data: item,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.budgetItems[index] = result;
+        this.transactionService.updateTransaction(result, item.id);
+      }
+    });
   }
 }

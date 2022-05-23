@@ -31,6 +31,8 @@ export class MainPageComponent implements OnInit {
           ...(transaction.payload.doc.data() as {}),
         } as unknown as BudgetItem;
       });
+      console.log(this.budgetItems);
+
       this.calculateTotal();
     });
   }
